@@ -1,0 +1,13 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <a class="navbar-brand mr-auto" href="#">Kanban</a>
+  <ul class="navbar-nav">
+    {% if user.is_staff %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url "admin:index" %}">admin</a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url "rest_framework:logout" %}?next=/">logout</a>
+    </li>
+  </span>
+</nav>

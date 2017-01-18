@@ -1,0 +1,18 @@
+{% extends "kanban/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "kanban/css/style.css" %}"/>
+{% endblock css %}
+
+{% block content %}
+<div id="main"></div>
+{% endblock content %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react{% if not debug %}.min{% endif %}.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom{% if not debug %}.min{% endif %}.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/4.0.0-0/react-router{% if not debug %}.min{% endif %}.js"></script>
+<script>window.INITIAL_DATA = JSON.parse('{{ initial_data|escapejs }}');</script>
+<script src="{% static "kanban/js/index.js" %}"></script>
+{% endblock js %}

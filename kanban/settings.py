@@ -110,6 +110,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = root('staticfiles')
 
 
+# Auth
+
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
+
+
 # Django REST Framework
 
 REST_FRAMEWORK = {
