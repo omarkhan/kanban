@@ -121,6 +121,7 @@ STATICFILES_FINDERS = [
 COMPRESS_PRECOMPILERS = [
     ('text/jsx', './node_modules/.bin/browserify -t [ babelify --presets  [ es2015 react ] ] {infile}'),
 ]
+COMPRESS_ENABLED = False
 
 
 # Auth
