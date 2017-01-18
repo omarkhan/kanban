@@ -1,0 +1,66 @@
+html, body, #main, .board {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#root {
+  flex: 1;
+}
+
+.navbar {
+  min-height: 56px;
+}
+
+.boards {
+  margin-top: 25px;
+}
+
+.board {
+  max-height: 100%;
+}
+
+.columns {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: auto;
+}
+
+.columns .column {
+  flex: 1;
+  min-width: 300px;
+  margin-right: 20px;
+}
+
+.columns .column:last-child {
+  margin-right: 0;
+}
+
+.columns .column.over {
+  background-color: #fafafa;
+}
+
+.cards {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.cards .card {
+  font-size: smaller;
+  margin-bottom: 20px;
+}
+
+.cards .card:last-child {
+  margin-bottom: 0;
+}
+
+.cards .card.dragging {
+  opacity: 0.3;
+}
+
+.cards .card.over {
+  border-top: 8px solid #999;
+}

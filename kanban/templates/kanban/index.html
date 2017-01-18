@@ -1,18 +1,25 @@
 {% extends "kanban/base.html" %}
 {% load static %}
+{% load compress %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static "kanban/css/style.css" %}"/>
 {% endblock css %}
 
 {% block content %}
-<div id="main"></div>
+<div id="root"></div>
 {% endblock content %}
 
 {% block js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react{% if not debug %}.min{% endif %}.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom{% if not debug %}.min{% endif %}.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/4.0.0-0/react-router{% if not debug %}.min{% endif %}.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux{% if not debug %}.min{% endif %}.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.2/react-redux{% if not debug %}.min{% endif %}.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/3.0.1/ReactRouter{% if not debug %}.min{% endif %}.js"></script>
+<script src="https://unpkg.com/react-dnd@latest/dist/ReactDnD.min.js"></script>
+<script src="https://unpkg.com/react-dnd-html5-backend@latest/dist/ReactDnDHTML5Backend.min.js"></script>
 <script>window.INITIAL_DATA = JSON.parse('{{ initial_data|escapejs }}');</script>
-<script src="{% static "kanban/js/index.js" %}"></script>
+{% compress js %}
+<script type="text/jsx" src="{% static "kanban/js/index.js" %}"></script>
+{% endcompress %}
 {% endblock js %}

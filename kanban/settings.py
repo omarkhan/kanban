@@ -30,6 +30,8 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
+INTERNAL_IPS = ['127.0.0.1']
+
 
 # Application definition
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
     'ordered_model',
     'rest_framework',
     'kanban',
@@ -108,6 +111,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = root('staticfiles')
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_PRECOMPILERS = [
+    ('text/jsx', './node_modules/.bin/browserify -t [ babelify --presets  [ es2015 react ] ] {infile}'),
+]
 
 
 # Auth
